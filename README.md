@@ -7,6 +7,5 @@ Any merges to the main branch of this repository will be picked up by [Terraform
 Important note: you should ***never*** run terraform apply locally.
 
 ## Resources to create here
-- VPC's for projects
 - Shared VPCs
 - Firewall rules
