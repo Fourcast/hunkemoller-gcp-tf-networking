@@ -1,5 +1,8 @@
 terraform {
-    backend "gcs" {
-        bucket = "pj-hkm-network-management-tf-state-remote"
+    cloud {
+        organization = "hunkemoller"
+        workspaces {
+            name = "gcp-tf-networking"
+        }
     }
 }
