@@ -37,8 +37,6 @@ module "cc_shared_vpc" {
     host_project = "pj-hkm-network-data-team"
     service_projects = [
         "pj-data-pipeline-devel",
-        "jesper-testing-cloud-composer",
-        "matcha-mochi"
     ]
 
     depends_on = [
