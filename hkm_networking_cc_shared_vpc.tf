@@ -24,7 +24,6 @@ module "cc_vpc" {
     }
 }
 
-
 # Set up shared VPC for Cloud Composer
 module "cc_shared_vpc" {
     source = "./modules//tf-gcp-modules-network-xpn"
