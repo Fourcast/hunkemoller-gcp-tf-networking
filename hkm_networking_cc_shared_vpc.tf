@@ -1,6 +1,7 @@
 # Set up base VPC for Cloud Composer
 module "cc_vpc" {
-    source = "./modules//tf-gcp-modules-network-vpc"
+    #source = "./modules//tf-gcp-modules-network-vpc"
+    source = "git@github.com:hunkemollerbv/gcp-tf-modules.git//tf-gcp-modules-network-vpc"
 
     vpc_name     = "cloud-composer-vpc"
     project      = "pj-hkm-network-data-team"
@@ -26,7 +27,8 @@ module "cc_vpc" {
 
 # Set up shared VPC for Cloud Composer
 module "cc_shared_vpc" {
-    source = "./modules//tf-gcp-modules-network-xpn"
+    #source = "./modules//tf-gcp-modules-network-xpn"
+    source = "git@github.com:hunkemollerbv/gcp-tf-modules.git//tf-gcp-modules-network-xpn"
 
     # NOTE: These _cannot_ be variables. Need to manually enter the strings
     # NOTE: The service projects needs to have the compute api service enabled
