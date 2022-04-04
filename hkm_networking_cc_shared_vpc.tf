@@ -44,8 +44,6 @@ module "cc_shared_vpc" {
     depends_on = [
         google_project_service.cc_host_compute_api,
         google_project_service.cc_service_project_dev_compute_api,
-        google_project_service.cc_testing_compute_api,
-        google_project_service.phuong_testing_compute_api
     ]
 }
 
