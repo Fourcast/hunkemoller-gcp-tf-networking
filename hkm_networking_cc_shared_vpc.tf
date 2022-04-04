@@ -49,20 +49,11 @@ module "cc_shared_vpc" {
 
 # FIXME: These resources should be enabled through the source module
 # Enable required API's for all projects
-resource "google_project_service" "cc_host_rm_api" {
-  project = google_project.pj-data-team.id
-  service = "cloudresourcemanager.googleapis.com"
-  disable_on_destroy         = false
-  disable_dependent_services = false
-}
-
 resource "google_project_service" "cc_host_compute_api" {
   project = google_project.pj-data-team.id
   service = "compute.googleapis.com"
   disable_on_destroy         = false
   disable_dependent_services = false
-
-  depends_on = [ google_project_service.cc_host_rm_api ]
 }
 
 resource "google_project_service" "cc_service_project_dev_compute_api" {
@@ -70,6 +61,4 @@ resource "google_project_service" "cc_service_project_dev_compute_api" {
   service = "compute.googleapis.com"
   disable_on_destroy         = false
   disable_dependent_services = false
-
-  depends_on = [ google_project_service.cc_host_rm_api ]
 }
