@@ -37,7 +37,8 @@ module "cc_shared_vpc" {
   host_project     = "pj-hkm-network-data-team"
   service_projects = [
     "pj-data-pipeline-devel",
-    "pj-data-pipeline-staging"
+    "pj-data-pipeline-staging",
+    "pj-data-pipeline-prod"
   ]
 
   depends_on = [
