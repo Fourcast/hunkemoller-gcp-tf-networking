@@ -38,7 +38,9 @@ module "cc_shared_vpc" {
   service_projects = [
     "pj-data-pipeline-devel",
     "pj-data-pipeline-staging",
-    "pj-data-pipeline-prod"
+    "pj-data-pipeline-prod",
+    "pj-hkm-zeenea-prod",
+    "pj-hkm-zeenea-dev"
   ]
 
   depends_on = [
