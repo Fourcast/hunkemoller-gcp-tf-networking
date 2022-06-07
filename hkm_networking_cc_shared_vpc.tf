@@ -49,6 +49,33 @@ module "cc_shared_vpc" {
   ]
 }
 
+# HKM VPC
+module "hkm_vpc" {
+  #source = "./modules//tf-gcp-modules-network-vpc"
+  source = "git@github.com:hunkemollerbv/gcp-tf-modules.git//tf-gcp-modules-network-vpc"
+
+  vpc_name     = "vpc-host"
+  project      = "pj-hkm-vpc-host"
+  description  = "Host VPC for Hunkemoller"
+  routing_mode = "REGIONAL"
+
+  subnets = {
+    "vpc-subnet" = {
+      cidr_primary     = "10.5.0.0/16"
+      region           = var.cc_subnets_region
+      secondary_ranges = {
+        "vpc-pods" = {
+          cidr_range = "10.64.0.0/16"
+        }
+        "vpc-services" = {
+          cidr_range = "10.30.0.0/16"
+        }
+      }
+    }
+  }
+}
+
+# HKM Shared VPC
 module "hkm_shared_vpc" {
   #source = "./modules//tf-gcp-modules-network-xpn"
   source = "git@github.com:hunkemollerbv/gcp-tf-modules.git//tf-gcp-modules-network-xpn"
