@@ -90,11 +90,6 @@ module "hkm_shared_vpc" {
     "pj-hkm-prod",
     "pj-hkm-qa"
   ]
-
-  depends_on = [
-    google_project_service.cc_host_compute_api,
-    google_project_service.cc_service_project_dev_compute_api,
-  ]
 }
 
 # FIXME: These resources should be enabled through the source module
