@@ -16,3 +16,8 @@ variable "cc_subnets_region" {
     type = string
     description = "Region in which subnets for Cloud Composer will be created"
 }
+
+variable "hkm_vpc_region" {
+    type = string
+    description = "The region where the VPC and the subsequent resources should be deployed"
+}

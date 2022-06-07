@@ -62,7 +62,7 @@ module "hkm_vpc" {
   subnets = {
     "vpc-subnet" = {
       cidr_primary     = "10.5.0.0/16"
-      region           = var.cc_subnets_region
+      region           = var.hkm_vpc_region
       secondary_ranges = {
         "vpc-pods" = {
           cidr_range = "10.64.0.0/16"
