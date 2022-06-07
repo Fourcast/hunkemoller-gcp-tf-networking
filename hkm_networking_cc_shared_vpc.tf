@@ -49,6 +49,27 @@ module "cc_shared_vpc" {
   ]
 }
 
+module "hkm_shared_vpc" {
+  #source = "./modules//tf-gcp-modules-network-xpn"
+  source = "git@github.com:hunkemollerbv/gcp-tf-modules.git//tf-gcp-modules-network-xpn"
+
+  # NOTE: These _cannot_ be variables. Need to manually enter the strings
+  # NOTE: The service projects needs to have the compute api service enabled
+  #           before the link is created. So make sure to add the api enablement
+  #           to the depends_on field.
+  host_project     = "pj-hkm-vpc-host"
+  service_projects = [
+    "pj-hkm-dev",
+    "pj-hkm-prod",
+    "pj-hkm-qa"
+  ]
+
+  depends_on = [
+    google_project_service.cc_host_compute_api,
+    google_project_service.cc_service_project_dev_compute_api,
+  ]
+}
+
 # FIXME: These resources should be enabled through the source module
 # Enable required API's for all projects
 resource "google_project_service" "cc_host_compute_api" {
